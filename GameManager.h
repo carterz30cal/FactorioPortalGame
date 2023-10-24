@@ -1,5 +1,9 @@
 #include <SDL.h>
 #include <stdio.h>
+#include <list>
+#include "GameObject.h"
+
+using namespace std;
 
 #pragma once
 class GameManager
@@ -14,6 +18,7 @@ public:
 private:
 	SDL_Window* window = NULL;
 	SDL_Surface* screenSurface = NULL;
+	list<GameObject*>* objects = new list<GameObject*>();
 	
 	int screenWidth = 640;
 	int screenHeight = 480;

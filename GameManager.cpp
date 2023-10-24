@@ -34,6 +34,9 @@ void GameManager::game_loop()
 }
 void GameManager::render_stage() 
 {
+	for (auto& object : *objects) {
+		object->render(this->screenSurface);
+	}
 	SDL_UpdateWindowSurface(window);
 }
 
