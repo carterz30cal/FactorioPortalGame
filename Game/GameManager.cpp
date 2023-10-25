@@ -1,6 +1,13 @@
 #include "GameManager.h"
 
 
+GameManager* GameManager::instance() {
+	static GameManager* instance;
+	if (instance == NULL) instance = new GameManager();
+	
+	return instance;
+}
+
 /*
 Constructor for the GameManager, which handles the entire game loop.
 Must be called when the game starts.
@@ -43,4 +50,8 @@ void GameManager::render_stage()
 bool GameManager::is_game_alive() 
 {
 	return gameAlive;
+}
+
+void GameManager::add_object(GameObject* object) {
+	objects->push_back(object);
 }
