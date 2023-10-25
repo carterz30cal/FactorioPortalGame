@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\carte\Downloads\SDL2-devel-2.28.4-VC\SDL2-2.28.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\carte\Downloads\SDL2-devel-2.28.4-VC\SDL2-2.28.4\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\carte\Downloads\SDL2_image-devel-2.6.3-VC\SDL2_image-2.6.3\include;C:\Users\carte\Downloads\SDL2-devel-2.28.4-VC\SDL2-2.28.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\carte\Downloads\SDL2_image-devel-2.6.3-VC\SDL2_image-2.6.3\lib\x64;C:\Users\carte\Downloads\SDL2-devel-2.28.4-VC\SDL2-2.28.4\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -132,17 +132,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Game\Objects\Components\Component.cpp" />
+    <ClCompile Include="Game\GameManager.cpp" />
+    <ClCompile Include="Game\Objects\GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="Vector2.cpp" />
+    <ClCompile Include="Game\Objects\Components\Renderer.cpp" />
+    <ClCompile Include="Game\Objects\Components\SpriteRenderer.cpp" />
+    <ClCompile Include="Maths\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameManager.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Renderer.h" />
-    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Game\Objects\Components\Component.h" />
+    <ClInclude Include="Game\GameManager.h" />
+    <ClInclude Include="Game\Objects\GameObject.h" />
+    <ClInclude Include="Game\Objects\Components\Renderer.h" />
+    <ClInclude Include="Game\Objects\Components\SpriteRenderer.h" />
+    <ClInclude Include="Maths\Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,7 @@
 #include <SDL.h>
 #include <stdio.h>
 #include <list>
-#include "GameObject.h"
+#include "Objects/GameObject.h"
 
 using namespace std;
 
