@@ -135,10 +135,12 @@
     <ClCompile Include="Game\Objects\Components\Component.cpp" />
     <ClCompile Include="Game\GameManager.cpp" />
     <ClCompile Include="Game\Objects\GameObject.cpp" />
+    <ClCompile Include="Game\Input\KeyboardInput.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Game\Objects\Components\Renderer.cpp" />
     <ClCompile Include="Game\Objects\Components\SpriteRenderer.cpp" />
     <ClCompile Include="Maths\Vector2.cpp" />
+    <ClCompile Include="Game\Objects\Gameplay\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Objects\Components\Component.h" />
@@ -146,7 +148,9 @@
     <ClInclude Include="Game\Objects\GameObject.h" />
     <ClInclude Include="Game\Objects\Components\Renderer.h" />
     <ClInclude Include="Game\Objects\Components\SpriteRenderer.h" />
+    <ClInclude Include="Game\Input\KeyboardInput.h" />
     <ClInclude Include="Maths\Vector2.h" />
+    <ClInclude Include="Game\Objects\Gameplay\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

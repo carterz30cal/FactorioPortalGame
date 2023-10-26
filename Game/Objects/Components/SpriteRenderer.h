@@ -7,7 +7,7 @@ class SpriteRenderer :
 {
 public:
     SDL_Surface* get_render_surface();
-    SpriteRenderer(char* file);
+    SpriteRenderer(const char* file);
 private:
     SDL_Surface* texture;
 };

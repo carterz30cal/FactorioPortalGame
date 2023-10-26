@@ -4,10 +4,9 @@ struct Vector2
 public:
 	Vector2(double x, double y);
 	Vector2(double x);
+	Vector2(const Vector2& v);
 	Vector2();
-
-	static Vector2 add(Vector2& v1, Vector2& v2);
-	static Vector2 multiply(Vector2& v, double m);
+	Vector2 operator +(const Vector2& rhs) const;
 	double get_x();
 	double get_y();
 private:

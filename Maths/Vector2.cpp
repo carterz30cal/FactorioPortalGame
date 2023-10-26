@@ -10,11 +10,19 @@ Vector2::Vector2(double x, double y) {
 	this->x = x;
 	this->y = y;
 }
-Vector2 Vector2::add(Vector2& v1, Vector2& v2) {
-	return Vector2(v1.get_x() + v2.get_x(), v1.get_y() + v2.get_y());
+Vector2::Vector2(const Vector2& v) {
+	this->x = v.x;
+	this->y = v.y;
 }
-Vector2 Vector2::multiply(Vector2& v, double m) {
-	return Vector2(v.get_x() * m, v.get_y() * m);
+
+
+Vector2 Vector2::operator+(const Vector2& rhs) const
+{
+	if (this == 0) return Vector2();
+
+	double nx = x + rhs.x;
+	double ny = y + rhs.y;
+	return Vector2(nx, ny);
 }
 
 double Vector2::get_x() {

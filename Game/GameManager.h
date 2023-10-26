@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <list>
 #include "Objects/GameObject.h"
+#include "Input/KeyboardInput.h"
 
 using namespace std;
 //class GameObject;
@@ -17,6 +18,7 @@ public:
 	bool is_game_alive();
 	GameManager();
 	~GameManager();
+	KeyboardInput* input;
 private:
 	void add_object(GameObject* object);
 

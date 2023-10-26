@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "Input/KeyboardInput.h"
 
 
 GameManager* GameManager::instance() {
@@ -22,6 +23,7 @@ GameManager::GameManager() {
 	{
 		screenSurface = SDL_GetWindowSurface(window);
 	}
+	input = KeyboardInput::instance();
 }
 GameManager::~GameManager() {
 	SDL_DestroyWindow(window);
@@ -29,18 +31,32 @@ GameManager::~GameManager() {
 
 void GameManager::input_events() 
 {
+	input = KeyboardInput::instance(false);
+	input->reset_tick_vars();
+
 	SDL_Event e;
 	while (SDL_PollEvent(&e)) {
 		if (e.type == SDL_QUIT) gameAlive = false;
+		else if (e.type == SDL_KEYDOWN) {
+			input->handle_key_down(e.key.keysym.sym);
+		}
+		else if (e.type == SDL_KEYUP) {
+			input->handle_key_up(e.key.keysym.sym);
+		}
 	}
+
+	input->handle_key_input();
 }
 // This is where all of the game action happens.
 void GameManager::game_loop() 
 {
-
+	for (auto& object : *objects) {
+		object->tick_components();
+	}
 }
 void GameManager::render_stage() 
 {
+	SDL_FillRect(screenSurface, NULL, 0x000000);
 	for (auto& object : *objects) {
 		object->render(this->screenSurface);
 	}
